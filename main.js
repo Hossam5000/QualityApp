@@ -5,6 +5,7 @@ const input = document.getElementById("input");
 const saveBtn = document.getElementById("btn");
 
 // functions
+
 function save() {
     dataFields.push({
         "quest": input.parentElement.querySelector("span").textContent,
