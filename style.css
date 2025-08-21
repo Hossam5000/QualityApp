@@ -1,0 +1,29 @@
+/* global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    margin: 20px;
+    font-size: 1.6rem;
+}
+
+/* classes */
+.container {
+    width: 70%;
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+    text-align: right;
+    border: 1px solid #000;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
