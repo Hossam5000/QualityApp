@@ -27,3 +27,7 @@ body {
 h1 {
     margin-bottom: 20px;
 }
+
+.container .question {
+    margin: 10px 0;
+}
