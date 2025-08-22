@@ -7,10 +7,16 @@ const saveBtn = document.getElementById("btn");
 // functions
 
 function save() {
-    dataFields.push({
-        "quest": input.parentElement.querySelector("span").textContent,
-        "response": input.value,
-    });
+    const input = document.getElementById("input");
+    const saveBtn = document.getElementById("btn");
+    const quest = input.parentElement.querySelector("span");
+
+    if (quest.textContent === "نظافة الابواب") {
+        dataFields.push({
+            "quest": quest.textContent,
+            "response": input.value,
+        })
+    };
 
     localStorage.setItem("responses", JSON.stringify(dataFields));
     console.log(input.value);
