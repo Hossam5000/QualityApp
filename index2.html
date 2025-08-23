@@ -2,34 +2,35 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Simple Save App</title>
-    <link rel="stylesheet" href="style2.css">
+    <meta charset="UTF-8" />
+    <title>Dynamic ID Saver</title>
+    <link rel="stylesheet" href="style2.css" />
 </head>
 
 <body>
-    <div class="container">
-        <h1>📝 Save Your Inputs</h1>
 
+    <h2>🧠 Dynamic ID Save</h2>
+
+    <div id="inputs">
         <div class="input-group">
-            <input type="text" id="input1" placeholder="Enter value 1">
-            <button onclick="saveInput('input1')">Save 1</button>
+            <input type="text" placeholder="Response 1" />
+            <button onclick="saveResponse(this)">Save</button>
         </div>
-
         <div class="input-group">
-            <input type="text" id="input2" placeholder="Enter value 2">
-            <button onclick="saveInput('input2')">Save 2</button>
+            <input type="text" placeholder="Response 2" />
+            <button onclick="saveResponse(this)">Save</button>
         </div>
-
         <div class="input-group">
-            <input type="text" id="input3" placeholder="Enter value 3">
-            <button onclick="saveInput('input3')">Save 3</button>
+            <input type="text" placeholder="Response 3" />
+            <button onclick="saveResponse(this)">Save</button>
         </div>
-
-        <div id="status" class="status"></div>
-
-        <script src="main2.js"></script>
     </div>
+
+    <button onclick="downloadJSON()">Download JSON</button>
+
+    <div id="output"></div>
+
+    <script src="main2.js"></script>
 </body>
 
 </html>
