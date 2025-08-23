@@ -1,34 +1,38 @@
-// cons & vars
-const dataFields = [];
-const question1 = document.getElementById("question1")
-const input = document.getElementById("input");
-const saveBtn = document.getElementById("btn");
+const questions = document.querySelectorAll(".question");
 
-// functions
-
-function save() {
-    const input = document.getElementById("input");
-    const saveBtn = document.getElementById("btn");
-    const quest = input.parentElement.querySelector("span");
-
-    if (quest.textContent === "نظافة الابواب") {
-        dataFields.push({
-            "quest": quest.textContent,
-            "response": input.value,
-        })
-    };
-
-    localStorage.setItem("responses", JSON.stringify(dataFields));
-    console.log(input.value);
-    input.value = "";
-    console.log(input.parentElement.querySelector("span").textContent)
-    console.log(dataFields)
+function loadResponses() {
+    const saved = JSON.parse(localStorage.getItem("responses")) || [];
+    questions.forEach((q) => {
+        const label = q.querySelector("span").textContent;
+        const input = q.querySelector("input");
+        const match = saved.find((item) => item.quest === label);
+        if (match) input.value = match.response;
+    });
 }
-saveBtn.addEventListener("click", save);
-input.addEventListener("keydown", function (event) {
-    if (event.key === "Enter") {
-        save();
-    }
-});
-// code
 
+function saveResponse(questionElement) {
+    const label = questionElement.querySelector("span").textContent;
+    const input = questionElement.querySelector("input");
+    const value = input.value.trim();
+
+    if (!value) return;
+
+    let saved = JSON.parse(localStorage.getItem("responses")) || [];
+
+    const index = saved.findIndex((item) => item.quest === label);
+    if (index !== -1) {
+        saved[index].response = value;
+    } else {
+        saved.push({ quest: label, response: value });
+    }
+
+    localStorage.setItem("responses", JSON.stringify(saved));
+    console.log(`Saved: ${label} → ${value}`);
+}
+
+questions.forEach((q) => {
+    const button = q.querySelector("button");
+    button.addEventListener("click", () => saveResponse(q));
+});
+
+loadResponses();
