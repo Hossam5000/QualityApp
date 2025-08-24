@@ -31,3 +31,20 @@ h1 {
 .container .question {
     margin: 10px 0;
 }
+
+.test {
+    width: 100px;
+    height: 100px;
+    background-color: dodgerblue;
+    animation: animate 3s infinite linear;
+}
+
+@keyframes animate {
+    from {
+        transform: rotate(0deg)
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
