@@ -12,6 +12,7 @@ html {
 body {
     margin: 20px;
     font-size: 1.6rem;
+    background-color: green;
 }
 
 /* classes */
