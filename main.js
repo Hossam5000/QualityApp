@@ -1,38 +1,38 @@
-const questions = document.querySelectorAll(".question");
+// //cons & vars
+// const inputs = document.querySelectorAll(".input");
+// const btn = document.getElementById("btn");
 
-function loadResponses() {
-    const saved = JSON.parse(localStorage.getItem("responses")) || [];
-    questions.forEach((q) => {
-        const label = q.querySelector("span").textContent;
-        const input = q.querySelector("input");
-        const match = saved.find((item) => item.quest === label);
-        if (match) input.value = match.response;
+// // functions
+// function show() {
+//     console.log("success")
+// }
+
+// // events
+// btn.addEventListener("click", show);
+
+// // storage
+// inputs.forEach((item, index) => {
+//     localStorage.setItem(`question_${index}`, item.value);
+//     console.log(item.value)
+// });
+
+
+// // code
+
+// cons & vars
+const inputs = document.querySelectorAll(".input");
+const btn = document.getElementById("btn");
+
+// functions
+function save() {
+    inputs.forEach((item, index) => {
+        localStorage.setItem(`question_${index + 1}`, item.value);
+        console.log(item.value);
     });
 }
 
-function saveResponse(questionElement) {
-    const label = questionElement.querySelector("span").textContent;
-    const input = questionElement.querySelector("input");
-    const value = input.value.trim();
-
-    if (!value) return;
-
-    let saved = JSON.parse(localStorage.getItem("responses")) || [];
-
-    const index = saved.findIndex((item) => item.quest === label);
-    if (index !== -1) {
-        saved[index].response = value;
-    } else {
-        saved.push({ quest: label, response: value });
-    }
-
-    localStorage.setItem("responses", JSON.stringify(saved));
-    console.log(`Saved: ${label} → ${value}`);
-}
-
-questions.forEach((q) => {
-    const button = q.querySelector("button");
-    button.addEventListener("click", () => saveResponse(q));
-});
-
-loadResponses();
+// events
+btn.addEventListener("click", save);
+window.addEventListener("load", () => {
+    console.log("load")
+})
