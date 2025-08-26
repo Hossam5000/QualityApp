@@ -43,6 +43,7 @@ clearBtn.addEventListener("click", () => {
     localStorage.clear();
     inputs.forEach((input) => {
         input.value = "";
+    });
 });
 
 
