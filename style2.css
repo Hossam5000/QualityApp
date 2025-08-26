@@ -38,6 +38,7 @@ h1 {
 .container .question .input {
     width: 100%;
     padding: 10px;
+    text-align: right;
 }
 
 span.item {
@@ -49,4 +50,12 @@ span.item {
     width: 100%;
     padding: 10px;
     font-size: 25px;
+
+    cursor: pointer;
+}
+
+#msgBox {
+    color: green;
+    font-size: 20px;
+    margin-top: 10px;
 }

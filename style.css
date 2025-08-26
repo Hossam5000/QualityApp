@@ -38,6 +38,8 @@ h1 {
 .container .question .input {
     width: 100%;
     padding: 10px;
+
+    text-align: right;
 }
 
 span.item {

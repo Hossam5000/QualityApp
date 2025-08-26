@@ -1,7 +1,7 @@
 // vars & cons
 const inputs = document.querySelectorAll("input");
 const saveBtn = document.getElementById("btn");
-const saveMsg = document.getElementById("saveMessage");
+const msgBox = document.getElementById("msgBox");
 const exportBtn = document.getElementById("export");
 
 // functions
@@ -14,11 +14,26 @@ function save() {
         }
     });
     localStorage.setItem("Quality_Report", JSON.stringify(list));
+
+    msgBox.textContent = "تم الحفظ";
+    setTimeout(() => {
+        msgBox.textContent = "";
+    }, 1000);
     console.log(list);
 };
 // events
 window.addEventListener("load", () => {
-    save();
+    const savedDate = JSON.parse(localStorage.getItem("Quality_Report")) || {};
+    inputs.forEach((item) => {
+        if (savedDate[item.id]) {
+
+        }
+    });
+
+    //     inputs.forEach((input) => {
+    //         input.id === savedDate[input.id]
+    //     });
+    //     console.log(savedDate.findIndex("degree"))
 });
 
 saveBtn.addEventListener("click", save);
