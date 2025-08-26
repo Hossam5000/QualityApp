@@ -45,7 +45,7 @@ span.item {
     display: inline-block;
 }
 
-.container #btn {
+.container .btn {
     width: 100%;
     padding: 10px;
     font-size: 25px;
