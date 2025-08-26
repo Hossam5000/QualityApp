@@ -41,6 +41,8 @@ saveBtn.addEventListener("click", save);
 
 clearBtn.addEventListener("click", () => {
     localStorage.clear();
+    inputs.forEach((input) => {
+        input.value = "";
 });
 
 
