@@ -1,49 +1,44 @@
 // vars & cons
-const inputs = document.querySelectorAll(".input");
+const inputs = document.querySelectorAll("input");
 const saveBtn = document.getElementById("btn");
+const msgBox = document.getElementById("msgBox");
 const exportBtn = document.getElementById("export");
-const messageBox = document.getElementById("saveMessage");
 
 // functions
-// --save
 function save() {
-    const newEntry = {};
-
+    const list = {};
     inputs.forEach((item) => {
-        const proKey = item.dataset.pro;
-
-        newEntry[item.id] = item.value;
-        if (proKey) {
-            newEntry[proKey] = "بورعي😂";
+        list[item.id] = item.value;
+        if (item.dataset.pro) {
+            list[item.dataset.pro] = "perfect👌";
         }
+    });
+    localStorage.setItem("Quality_Report", JSON.stringify(list));
 
+    msgBox.textContent = "تم الحفظ";
+    setTimeout(() => {
+        msgBox.textContent = "";
+    }, 1000);
+    console.log(list);
+};
+// events
+window.addEventListener("load", () => {
+    const savedDate = JSON.parse(localStorage.getItem("Quality_Report")) || {};
+    inputs.forEach((item) => {
+        if (savedDate[item.id]) {
+            item.value = savedDate[item.id];
+        }
     });
 
-    newEntry.timestamp = new Date().toISOString();
 
-    localStorage.setItem("Quality_Report", JSON.stringify(newEntry));
-
-    console.log("Saved entry:", newEntry);
-
-    // Show confirmation message
-    messageBox.textContent = "تم الحفظ";
-
-    // Clear message after 3 seconds
-    setTimeout(() => {
-        messageBox.textContent = "";
-    }, 3000);
-}
-
-// Load saved data on page load
-window.addEventListener("load", () => {
-    const savedData = JSON.parse(localStorage.getItem("Quality_Report")) || {};
-    console.log("Saved data:", savedData);
 });
 
-// Save on button click
 saveBtn.addEventListener("click", save);
 
-// Export to Excel (two-column format)
+
+
+
+// excel function
 exportBtn.addEventListener("click", () => {
     const data = JSON.parse(localStorage.getItem("Quality_Report"));
 
@@ -52,7 +47,7 @@ exportBtn.addEventListener("click", () => {
         return;
     }
 
-    // Convert object to array of {Field, Value}
+    // Convert object to array of { Field, Value }
     const formatted = Object.entries(data).map(([key, value]) => ({
         Field: key,
         Value: value
@@ -60,7 +55,7 @@ exportBtn.addEventListener("click", () => {
 
     const worksheet = XLSX.utils.json_to_sheet(formatted);
     const workbook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(workbook, worksheet, "Questions");
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Quality_Report");
 
     XLSX.writeFile(workbook, "Quality_Report.xlsx");
 });

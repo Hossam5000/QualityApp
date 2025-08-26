@@ -38,7 +38,6 @@ h1 {
 .container .question .input {
     width: 100%;
     padding: 10px;
-
     text-align: right;
 }
 
@@ -50,5 +49,21 @@ span.item {
 .container .btn {
     width: 100%;
     padding: 10px;
+
+    margin-bottom: 10px;
     font-size: 25px;
+
+    cursor: pointer;
+}
+
+#clear {
+    margin-top: 10px;
+    background-color: rgb(250, 87, 87);
+    color: #fff;
+}
+
+#msgBox {
+    color: green;
+    font-size: 20px;
+    margin-top: 10px;
 }

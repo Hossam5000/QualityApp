@@ -26,14 +26,11 @@ window.addEventListener("load", () => {
     const savedDate = JSON.parse(localStorage.getItem("Quality_Report")) || {};
     inputs.forEach((item) => {
         if (savedDate[item.id]) {
-
+            item.value = savedDate[item.id];
         }
     });
 
-    //     inputs.forEach((input) => {
-    //         input.id === savedDate[input.id]
-    //     });
-    //     console.log(savedDate.findIndex("degree"))
+
 });
 
 saveBtn.addEventListener("click", save);
