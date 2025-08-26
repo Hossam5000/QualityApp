@@ -3,6 +3,8 @@ const inputs = document.querySelectorAll("input");
 const saveBtn = document.getElementById("btn");
 const msgBox = document.getElementById("msgBox");
 const exportBtn = document.getElementById("export");
+const clearBtn = document.getElementById("clear");
+
 
 // functions
 function save() {
@@ -37,6 +39,10 @@ saveBtn.addEventListener("click", save);
 
 
 
+clearBtn.addEventListener("click", () => {
+    localStorage.clear();
+});
+
 
 // excel function
 exportBtn.addEventListener("click", () => {
@@ -59,3 +65,14 @@ exportBtn.addEventListener("click", () => {
 
     XLSX.writeFile(workbook, "Quality_Report.xlsx");
 });
+
+
+
+
+
+
+
+
+
+
+
