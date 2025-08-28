@@ -30,7 +30,40 @@ const KonafaQuestions = [
 
 
 // functions
+// function save() {
+//     const savedDate = {}; // ✅ Declare the object here
+
+//     const inputs = document.querySelectorAll("input");
+
+//     inputs.forEach((input) => {
+//         savedDate[input.id] = input.value;
+//     });
+
+//     localStorage.setItem("Quality_Report", JSON.stringify(savedDate));
+
+//     msgBox.textContent = "تم الحفظ";
+//     setTimeout(() => {
+//         msgBox.textContent = "";
+//     }, 1000);
+// }
 function save() {
+    const inputs = document.querySelectorAll("input");
+
+    inputs.forEach((input) => {
+        localStorage.setItem(input.id, input.value); // 🔥 Save each input by its own ID
+    });
+
+    msgBox.textContent = "تم الحفظ";
+    setTimeout(() => {
+        msgBox.textContent = "";
+    }, 1000);
+}
+
+
+
+
+// events
+window.addEventListener("load", () => {
     const savedDate = {};
     KonafaQuestions.forEach((KonafaQuestion, index) => {
         // create html elements
@@ -56,29 +89,6 @@ function save() {
         questions.append(question);
 
         console.log(question);
-
-    });
-    const inputs = document.querySelectorAll("input");
-
-
-    inputs.forEach((item) => {
-        savedDate[item.id] = item.value;
-    });
-    localStorage.setItem("Quality_Report", JSON.stringify(savedDate));
-
-}
-msgBox.textContent = "تم الحفظ";
-setTimeout(() => {
-    msgBox.textContent = "";
-}, 1000);
-console.log("test");
-// events
-window.addEventListener("load", () => {
-    const savedDate = JSON.parse(localStorage.getItem("Quality_Report")) || {};
-    inputs.forEach((item) => {
-        if (savedDate[item.id]) {
-            item.value = savedDate[item.id];
-        }
     });
 
 
