@@ -4,6 +4,7 @@ const saveBtn = document.getElementById("btn");
 const msgBox = document.getElementById("msgBox");
 const exportBtn = document.getElementById("export");
 const clearBtn = document.getElementById("clear");
+const questions = [];
 
 
 // functions
