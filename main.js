@@ -1,6 +1,4 @@
 const saveBtn = document.getElementById("saveBtn");
-const exportBtn = document.getElementById("exportBtn");
-const clearBtn = document.getElementById("clearBtn");
 const msgBox = document.getElementById("msgBox");
 const exportBtn = document.getElementById("export");
 const clearBtn = document.getElementById("clear");
