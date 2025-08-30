@@ -1,7 +1,6 @@
-// vars & cons
-const questions = document.querySelector(".questions");
-const lables = document.querySelectorAll(".item");
-const saveBtn = document.getElementById("btn");
+const saveBtn = document.getElementById("saveBtn");
+const exportBtn = document.getElementById("exportBtn");
+const clearBtn = document.getElementById("clearBtn");
 const msgBox = document.getElementById("msgBox");
 const exportBtn = document.getElementById("export");
 const clearBtn = document.getElementById("clear");
@@ -85,8 +84,6 @@ clearBtn.addEventListener("click", () => {
     });
 });
 
-
-// excel function
 exportBtn.addEventListener("click", () => {
     //     const data = {};
 
