@@ -29,25 +29,8 @@ const KonafaQuestions = [
 ];
 
 
-// functions
-// function save() {
-//     const savedDate = {}; // ✅ Declare the object here
-
-//     const inputs = document.querySelectorAll("input");
-
-//     inputs.forEach((input) => {
-//         savedDate[input.id] = input.value;
-//     });
-
-//     localStorage.setItem("Quality_Report", JSON.stringify(savedDate));
-
-//     msgBox.textContent = "تم الحفظ";
-//     setTimeout(() => {
-//         msgBox.textContent = "";
-//     }, 1000);
-// }
 function save() {
-    const inputs = document.querySelectorAll("input");
+    const inputs = document.querySelectorAll(".input");
 
     inputs.forEach((input) => {
         localStorage.setItem(input.id, input.value); // 🔥 Save each input by its own ID
@@ -64,7 +47,6 @@ function save() {
 
 // events
 window.addEventListener("load", () => {
-    const savedDate = {};
     KonafaQuestions.forEach((KonafaQuestion, index) => {
         // create html elements
         const question = document.createElement("div");
@@ -87,8 +69,6 @@ window.addEventListener("load", () => {
         // combine elements together
         question.append(lable, inputField);
         questions.append(question);
-
-        console.log(question);
     });
 
 
@@ -108,34 +88,64 @@ clearBtn.addEventListener("click", () => {
 
 // excel function
 exportBtn.addEventListener("click", () => {
-    const data = JSON.parse(localStorage.getItem("Quality_Report"));
+    //     const data = {};
 
-    if (!data || Object.keys(data).length === 0) {
-        alert("لا توجد بيانات للتصدير.");
+    //     Object.keys(localStorage).forEach((key) => {
+    //         if (key.startsWith("konafa_")) {
+    //             data[key] = localStorage.getItem(key);
+    //         }
+    //     });
+
+    //     if (Object.keys(data).length === 0) {
+    //         alert("لا توجد بيانات محفوظه ليتم التصدير");
+    //         return;
+    //     }
+
+
+
+    //     const formatted = Object.entries(data).map(
+    //         ([key, value]) => ({
+    //             Field: key,
+    //             Value: value,
+    //         }
+    //         ));
+
+
+    //     console.log(formatted);
+
+    //     const worksheet = XLSX.utils.json_to_sheet(formatted);
+    //     const workbook = XLSX.utils.book_new();
+
+    //     XLSX.utils.book_append_sheet(workbook, worksheet, "sheet 1");
+    //     XLSX.writeFile(workbook, "Quality_Report.xlsx");
+    // 
+
+    const data = {};
+
+    Object.keys(localStorage).forEach((key) => {
+        if (key.startsWith("konafa_")) {
+            data[key] = localStorage.getItem(key);
+        }
+    });
+
+    if (Object.keys(localStorage).length === 0) {
+        alert("من فضلك احفظ بعض البيانات ليتم التصدير");
         return;
     }
 
-    // Convert object to array of { Field, Value }
-    const formatted = Object.entries(data).map(([key, value]) => ({
-        Field: key,
-        Value: value
-    }));
+    const formatted = Object.entries(data).map(
+        ([key, value]) => ({
+            Field: key,
+            Value: value,
+        }
+        )
+    );
 
     const worksheet = XLSX.utils.json_to_sheet(formatted);
     const workbook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(workbook, worksheet, "Quality_Report");
 
+    XLSX.utils.book_append_sheet(workbook, worksheet, "sheet1");
     XLSX.writeFile(workbook, "Quality_Report.xlsx");
-});
-
-
-console.log(KonafaQuestions);
-console.log(lables);
-
-
-
-
-
-
-
+}
+);
 
