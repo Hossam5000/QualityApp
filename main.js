@@ -86,37 +86,6 @@ clearBtn.addEventListener("click", () => {
 });
 
 exportBtn.addEventListener("click", () => {
-    //     const data = {};
-
-    //     Object.keys(localStorage).forEach((key) => {
-    //         if (key.startsWith("konafa_")) {
-    //             data[key] = localStorage.getItem(key);
-    //         }
-    //     });
-
-    //     if (Object.keys(data).length === 0) {
-    //         alert("لا توجد بيانات محفوظه ليتم التصدير");
-    //         return;
-    //     }
-
-
-
-    //     const formatted = Object.entries(data).map(
-    //         ([key, value]) => ({
-    //             Field: key,
-    //             Value: value,
-    //         }
-    //         ));
-
-
-    //     console.log(formatted);
-
-    //     const worksheet = XLSX.utils.json_to_sheet(formatted);
-    //     const workbook = XLSX.utils.book_new();
-
-    //     XLSX.utils.book_append_sheet(workbook, worksheet, "sheet 1");
-    //     XLSX.writeFile(workbook, "Quality_Report.xlsx");
-    // 
 
     const data = {};
 
