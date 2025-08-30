@@ -1,4 +1,5 @@
 const saveBtn = document.getElementById("saveBtn");
+const questions = document.getElementById("questions")
 const msgBox = document.getElementById("msgBox");
 const exportBtn = document.getElementById("export");
 const clearBtn = document.getElementById("clear");
@@ -30,7 +31,7 @@ function save() {
     const inputs = document.querySelectorAll(".input");
 
     inputs.forEach((input) => {
-        localStorage.setItem(input.id, input.value); // 🔥 Save each input by its own ID
+        localStorage.setItem(input.id, input.value);
     });
 
     msgBox.textContent = "تم الحفظ";
@@ -46,7 +47,6 @@ function save() {
 window.addEventListener("load", () => {
     KonafaQuestions.forEach((KonafaQuestion, index) => {
         // create html elements
-        const questions = document.createElement("div");
         const question = document.createElement("div");
         const lable = document.createElement("span");
         const inputField = document.createElement("input");
@@ -67,6 +67,8 @@ window.addEventListener("load", () => {
         // combine elements together
         question.append(lable, inputField);
         questions.append(question);
+
+        console.log(question)
     });
 
 
