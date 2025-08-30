@@ -46,6 +46,7 @@ function save() {
 window.addEventListener("load", () => {
     KonafaQuestions.forEach((KonafaQuestion, index) => {
         // create html elements
+        const questions = document.createElement("div");
         const question = document.createElement("div");
         const lable = document.createElement("span");
         const inputField = document.createElement("input");
