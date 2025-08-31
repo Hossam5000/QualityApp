@@ -1,0 +1,15 @@
+<section class="section">
+            <h1 class="section-title">البان</h1>
+
+            <div class="division">
+
+                <div class="questions">
+                    <div class="question">
+                        <span class="question-text">هل الارضيات نظيفة</span>
+                        <input type="text" class="input" id="">
+                    </div><!--./question-->
+                </div><!--./questions-->
+
+            </div><!--./division-->
+
+        </section><!--./section-->
