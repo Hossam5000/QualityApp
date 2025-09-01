@@ -1,69 +1,124 @@
-// cons & vars
-const list = [1, 2, 3, 4, 5, 6];
 const container = document.querySelector(".container");
-const milkSection =
-{
-    "title": "mainaaa",
-    "questions": [
-        "التاكد من فصل بين انواع المخلفات ووجود تعريف لكل نوع",
-        "التأكد من عدم وجود دبابيس ومشبك ورق  داخل القسم ",
-        "نظافة اعلي واسفل البنوك ",
-        "جميع الخامات معرفة بشكل صحيح وغير منتهية الصلاحية ",
-        "الالتزام بترتيب المنطقة المتفق عليه ",
-        "نظافة المضرب ",
-        "نظافة المبرد",
-        "نظافة الاستاندات الثابتة ",
-        "نظافة البرانيك المستخدمة في العملية الانتاجية "
-    ]
-};
 
-//functions
-function createSection() {
-    Object.keys(milkSection).forEach(item => {
-        // HTML creation
-        // 
+const sectionsData = [
+    {
+        title: "قسم الكنافة",
+        divisions: [
+            {
+                divisionTitle: "الكنافة",
+                questions: [
+                    "التاكد من فصل بين انواع المخلفات ووجود تعريف لكل نوع",
+                    "نظافة الصواني والصاجات المستخدمة ",
+                    "التأكد من عدم وجود دبابيس ومشبك ورق  داخل القسم ",
+                    "نظافة اعلي واسفل البنوك ",
+                    "جميع الخامات معرفة بشكل صحيح وغير منتهية الصلاحية ",
+                    "الالتزام بترتيب المنطقة المتفق عليه ",
+                    "نظافة الاستاندات الثابتة ",
+                    "نظافة ماكينة فرم الكنافة ",
+                    "نظافة وتصنيف دولاب الادوات المستخدمة ",
+                    "نظافة البرانيك المستخدمة في العملية الانتاجية ",
+                    "نظافة المضرب ",
+                    "نظافة الاستاندات وتعريف المنتجات في غرفة التبريد",
+                    " يتم تنظيف وغسيل ادوات التقطيع والماكينه  بعد ا الانتهاء من المنتجات المحتوي علي مسببات حساسية"
+
+                ]
+            },
+            {
+                divisionTitle: "الاستيور",
+                questions: [
+                    "نظافة الابواب من الداخل والخارج و البلاعات  ",
+                    "نظافة الارضيات  ",
+                    "نظافة الاسقف وعدم تقشير الدهان  ",
+                    "نظافة حوض التعقييم ",
+                    "نظافة الحوائط والاركان بين االارضيات والحوائط ",
+                    "وجود كيس داخل  صناديق المخلفات ",
+                    "التاكد من فصل بين انواع المخلفات ووجود تعريف لكل نوع",
+                    "التاكد من وجود صابون ايدي وكحول بالقسم ",
+                ]
+            },
+            {
+                title: "الصيانة",
+                questions: [
+                    "هل تم فحص المعدات؟",
+                    "هل تم تسجيل الأعطال؟"
+                ]
+            }
+        ]
+    },
+    {
+        title: "قسم البسبوسة",
+        divisions: [
+            {
+                title: "البسبوسة",
+                questions: [
+                    "هل تم تحضير المكونات؟",
+                    "هل تم تنظيف القوالب؟"
+                ]
+            },
+            {
+                title: "الاستيور",
+                questions: [
+                    "هل تم ترتيب الأدوات؟",
+                    "هل تم التأكد من صلاحية المواد؟"
+                ]
+            },
+            {
+                title: "الصيانة",
+                questions: [
+                    "هل تم فحص المعدات؟",
+                    "هل تم تسجيل الأعطال؟"
+                ]
+            }
+        ]
+    }
+];
+
+function createSections(sections) {
+    sections.forEach(sectionData => {
         const section = document.createElement("section");
-        const sectionTitle = document.createElement("h1");
-        const division = document.createElement("div");
-        const divisionTitle = document.createElement("h2");
-        const questions = document.createElement("div");
-        const question = document.createElement("div");
-        const questionText = document.createElement("span");
-        const questionInput = document.createElement("input");
+        section.classList.add("checklist-section");
 
-        //HTML attributes
-        questionInput.setAttribute("type", "text");
+        const sectionTitle = document.createElement("h2");
+        sectionTitle.textContent = sectionData.title;
+        sectionTitle.classList.add("section-title");
+        section.appendChild(sectionTitle);
 
-        // HTML content
-        sectionTitle.textContent = "section"
-        divisionTitle.textContent = milkSection.title;
-        milkSection.questions.forEach((quest, index) => {
-            console.log(questionText.textContent = milkSection.questions[index]);
+        sectionData.divisions.forEach(divisionData => {
+            const division = document.createElement("div");
+            division.classList.add("division");
+
+            const divisionTitle = document.createElement("h3");
+            divisionTitle.textContent = divisionData.title;
+            divisionTitle.classList.add("division-title");
+            division.appendChild(divisionTitle);
+
+            const questionsContainer = document.createElement("div");
+            questionsContainer.classList.add("questions");
+
+            divisionData.questions.forEach(questionText => {
+                const question = document.createElement("div");
+                question.classList.add("question");
+
+                const questionLabel = document.createElement("span");
+                questionLabel.textContent = questionText;
+                questionLabel.classList.add("item");
+
+                const questionInput = document.createElement("input");
+                questionInput.setAttribute("type", "text");
+                questionInput.classList.add("input");
+
+                question.append(questionLabel, questionInput);
+                questionsContainer.appendChild(question);
+            });
+
+            division.appendChild(questionsContainer);
+            section.appendChild(division);
         });
 
-        // CSS styles
-        division.classList.add("division");
-        divisionTitle.classList.add("division-title");
-        questions.classList.add("questions");
-        question.classList.add("question");
-        questionText.classList.add("item");
-        questionInput.classList.add("input");
-
-
-
-        // combination
-        question.append(questionText, questionInput);
-        questions.append(question);
-        division.append(divisionTitle, questions);
-        section.append(sectionTitle, division);
-        container.append(section);
-
-        console.log(section);
-
+        container.appendChild(section);
     });
-};
+}
 
-// events
 window.addEventListener("load", () => {
-    createSection();
+    createSections(sectionsData);
 });
