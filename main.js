@@ -26,8 +26,8 @@ function createSection() {
         const sectionTitle = document.createElement("h1");
         const division = document.createElement("div");
         const divisionTitle = document.createElement("h2");
-        const questions = document.createElement("questions");
-        const question = document.createElement("question");
+        const questions = document.createElement("div");
+        const question = document.createElement("div");
         const questionText = document.createElement("span");
         const questionInput = document.createElement("input");
 
@@ -35,8 +35,11 @@ function createSection() {
         questionInput.setAttribute("type", "text");
 
         // HTML content
-        section.textContent = "section"
+        sectionTitle.textContent = "section"
         divisionTitle.textContent = milkSection.title;
+        milkSection.questions.forEach((quest, index) => {
+            console.log(questionText.textContent = milkSection.questions[index]);
+        });
 
         // CSS styles
         division.classList.add("division");
@@ -51,10 +54,9 @@ function createSection() {
         // combination
         question.append(questionText, questionInput);
         questions.append(question);
-        division.append(questions, divisionTitle);
+        division.append(divisionTitle, questions);
         section.append(sectionTitle, division);
         container.append(section);
-        console.log(container);
 
         console.log(section);
 
