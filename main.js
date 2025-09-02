@@ -2,7 +2,7 @@ const container = document.querySelector(".container");
 
 const sectionsData = [
     {
-        title: "قسم الكنافة",
+        sectionTitle: "قسم الكنافة",
         divisions: [
             {
                 divisionTitle: "الكنافة",
@@ -46,7 +46,7 @@ const sectionsData = [
         ]
     },
     {
-        title: "قسم البسبوسة",
+        sectionTitle: "قسم البسبوسة",
         divisions: [
             {
                 title: "البسبوسة",
@@ -78,8 +78,11 @@ function createSections(sections) {
         const section = document.createElement("section");
         section.classList.add("checklist-section");
 
+        // HTML creation
         const sectionTitle = document.createElement("h2");
-        sectionTitle.textContent = sectionData.title;
+
+        // 
+        sectionTitle.textContent = sectionData.sectionTitle;
         sectionTitle.classList.add("section-title");
         section.appendChild(sectionTitle);
 
