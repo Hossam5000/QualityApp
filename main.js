@@ -75,37 +75,44 @@ const sectionsData = [
 
 function createSections(sections) {
     sections.forEach(sectionData => {
+        // section
         const section = document.createElement("section");
         section.classList.add("checklist-section");
 
-        // HTML creation
+        // section title
         const sectionTitle = document.createElement("h2");
-
-        // 
         sectionTitle.textContent = sectionData.sectionTitle;
         sectionTitle.classList.add("section-title");
         section.appendChild(sectionTitle);
 
+        // section data
         sectionData.divisions.forEach(divisionData => {
+            // division
             const division = document.createElement("div");
             division.classList.add("division");
 
+            // division title
             const divisionTitle = document.createElement("h3");
             divisionTitle.textContent = divisionData.title;
             divisionTitle.classList.add("division-title");
             division.appendChild(divisionTitle);
 
+            // question container
             const questionsContainer = document.createElement("div");
             questionsContainer.classList.add("questions");
 
+            // questions
             divisionData.questions.forEach(questionText => {
+                // question
                 const question = document.createElement("div");
                 question.classList.add("question");
 
+                // question label
                 const questionLabel = document.createElement("span");
                 questionLabel.textContent = questionText;
                 questionLabel.classList.add("item");
 
+                // question input
                 const questionInput = document.createElement("input");
                 questionInput.setAttribute("type", "text");
                 questionInput.classList.add("input");
