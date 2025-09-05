@@ -1,5 +1,4 @@
 // CONS & VARS
-const ExcelJs = require('exceljs');
 const container = document.querySelector(".container");
 const saveBtn = document.getElementById("save");
 const clearBtn = document.getElementById("clear");
@@ -287,3 +286,23 @@ clearBtn.addEventListener("click", () => {
         input.value = "";
     });
 });
+
+// excel code [just a small training on the exclejs and it isn't part of the project]
+async function exportToExcel() {
+    const workbook = new ExcelJS.Workbook();
+    const worksheet = workbook.addWorksheet("sheet 1");
+
+    worksheet.getCell("A1").value = "hello bro";
+    const buffer = await workbook.xlsx.writeBuffer();
+
+    const blob = new Blob([buffer], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "hello.xlsx";
+    a.click();
+
+    URL.revokeObjectURL(url);
+    console.log(workbook, worksheet);
+}
