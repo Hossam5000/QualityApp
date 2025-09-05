@@ -1,4 +1,5 @@
 // CONS & VARS
+const ExcelJs = require('exceljs');
 const container = document.querySelector(".container");
 const saveBtn = document.getElementById("save");
 const clearBtn = document.getElementById("clear");
@@ -275,8 +276,14 @@ saveBtn.addEventListener("click", () => {
             "index": index,
             "value": input.value.trim(),
         });
-        console.log(input);
     });
 
     localStorage.setItem("Data", JSON.stringify(savedData));
+});
+
+clearBtn.addEventListener("click", () => {
+    const inputs = document.querySelectorAll(".input");
+    inputs.forEach((input) => {
+        input.value = "";
+    });
 });
