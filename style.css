@@ -53,3 +53,40 @@ section {
     padding: 5px;
     font-size: 14px;
 }
+
+.controllers {
+    margin: auto;
+    width: 800px;
+}
+
+.controllers button {
+    width: 100%;
+
+    margin-bottom: 20px;
+    padding: 20px 0;
+    border: 0;
+    border-radius: 10px;
+
+    font-size: 25px;
+
+    cursor: pointer;
+}
+
+.controllers button:hover {
+    opacity: 0.7;
+}
+
+.controllers #save {
+    background-color: green;
+    color: #fff;
+}
+
+.controllers #clear {
+    background-color: red;
+    color: #fff;
+}
+
+.controllers #export {
+    background-color: dodgerblue;
+    color: #fff;
+}

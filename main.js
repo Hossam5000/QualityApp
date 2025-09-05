@@ -1,4 +1,8 @@
+// CONS & VARS
 const container = document.querySelector(".container");
+const saveBtn = document.getElementById("save");
+const clearBtn = document.getElementById("clear");
+const exportBtn = document.getElementById("export");
 
 const sectionsData = [
     {
@@ -199,6 +203,7 @@ const sectionsData = [
     }
 ];
 
+// FUNCTIONS
 function createSections(sections) {
     sections.forEach(sectionData => {
         // section
@@ -253,8 +258,25 @@ function createSections(sections) {
 
         container.appendChild(section);
     });
-}
+};
 
+
+
+// EVENTS
 window.addEventListener("load", () => {
     createSections(sectionsData);
+});
+
+saveBtn.addEventListener("click", () => {
+    const inputs = document.querySelectorAll(".input");
+    const savedData = [];
+    inputs.forEach((input, index) => {
+        savedData.push({
+            "index": index,
+            "value": input.value.trim(),
+        });
+        console.log(input);
+    });
+
+    localStorage.setItem("Data", JSON.stringify(savedData));
 });
