@@ -288,21 +288,29 @@ clearBtn.addEventListener("click", () => {
 });
 
 // excel code [just a small training on the exclejs and it isn't part of the project]
-async function exportToExcel() {
-    const workbook = new ExcelJS.Workbook();
-    const worksheet = workbook.addWorksheet("sheet 1");
+const jsonData = [
+    { id: 1, name: "ahmed", role: "QC" },
+    { id: 2, name: "sadek", role: "labeler" },
+    { id: 3, name: "ali", role: "supervisor" },
+];
 
-    worksheet.getCell("A1").value = "hello bro";
-    const buffer = await workbook.xlsx.writeBuffer();
+const workbook = new ExcelJS.Workbook();
+const worksheet = workbook.addWorksheet("sheet 1");
+const buffer = await workbook.XLSX.writeBuffer();
+const blob = new Blob([buffer], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
+const url = URL.createObjectURL(blob);
+const a = document.createElement("a");
 
-    const blob = new Blob([buffer], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
-    const url = URL.createObjectURL(blob);
+a.href = url;
+a.download = "sheet 1.xlsx";
+a.click();
+URL.revokeObjectURL(j)
 
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "hello.xlsx";
-    a.click();
+worksheet.columns = [
+    { header: "ID", key: "id" },
+    { header: "NAME", key: "name" },
+    { header: "ROLE", key: "role" },
+];
 
-    URL.revokeObjectURL(url);
-    console.log(workbook, worksheet);
-}
+worksheet.addRow(jsonData);
+
