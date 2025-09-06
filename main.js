@@ -297,15 +297,7 @@ const jsonData = [
 async function exportToExcel() {
     const workbook = new ExcelJS.Workbook();
     const worksheet = workbook.addWorksheet("sheet 1");
-    const buffer = await workbook.XLSX.writeBuffer();
-    const blob = new Blob([buffer], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
-    const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
-
-    a.href = url;
-    a.download = "sheet 1.xlsx";
-    a.click();
-    URL.revokeObjectURL(j)
 
     worksheet.columns = [
         { header: "ID", key: "id" },
@@ -313,6 +305,18 @@ async function exportToExcel() {
         { header: "ROLE", key: "role" },
     ];
 
-    worksheet.addRow(jsonData);
+    jsonData.forEach((ws) => {
+        worksheet.addRow(ws);
+    })
+
+    const buffer = await workbook.xlsx.writeBuffer();
+    const blob = new Blob([buffer], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
+
+
+    const url = URL.createObjectURL(blob);
+    a.href = url;
+    a.download = "sheet 1.xlsx";
+    a.click();
+    URL.revokeObjectURL(url);
 
 }
