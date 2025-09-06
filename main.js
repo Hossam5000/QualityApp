@@ -294,23 +294,25 @@ const jsonData = [
     { id: 3, name: "ali", role: "supervisor" },
 ];
 
-const workbook = new ExcelJS.Workbook();
-const worksheet = workbook.addWorksheet("sheet 1");
-const buffer = await workbook.XLSX.writeBuffer();
-const blob = new Blob([buffer], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
-const url = URL.createObjectURL(blob);
-const a = document.createElement("a");
+async function exportToExcel() {
+    const workbook = new ExcelJS.Workbook();
+    const worksheet = workbook.addWorksheet("sheet 1");
+    const buffer = await workbook.XLSX.writeBuffer();
+    const blob = new Blob([buffer], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
 
-a.href = url;
-a.download = "sheet 1.xlsx";
-a.click();
-URL.revokeObjectURL(j)
+    a.href = url;
+    a.download = "sheet 1.xlsx";
+    a.click();
+    URL.revokeObjectURL(j)
 
-worksheet.columns = [
-    { header: "ID", key: "id" },
-    { header: "NAME", key: "name" },
-    { header: "ROLE", key: "role" },
-];
+    worksheet.columns = [
+        { header: "ID", key: "id" },
+        { header: "NAME", key: "name" },
+        { header: "ROLE", key: "role" },
+    ];
 
-worksheet.addRow(jsonData);
+    worksheet.addRow(jsonData);
 
+}
