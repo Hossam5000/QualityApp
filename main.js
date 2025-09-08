@@ -360,13 +360,7 @@ clearBtn.addEventListener("click", () => {
 });
 
 
-// excel code [just a small training on the exclejs and it isn't part of the project]
-const jsonData = [
-    { id: 1, name: "ahmed", role: "QC" },
-    { id: 2, name: "sadek", role: "labeler" },
-    { id: 3, name: "ali", role: "supervisor" },
-];
-
+// excel function
 async function exportChecklistToExcel() {
     const workbook = new ExcelJS.Workbook();
     const worksheet = workbook.addWorksheet("الشرقي");
@@ -411,3 +405,4 @@ async function exportChecklistToExcel() {
     a.click();
     URL.revokeObjectURL(url);
 }
+

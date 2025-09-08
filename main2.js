@@ -1,163 +1,24 @@
-// cons & vars
-const stoveQuestions = [
-    "نظافة الابواب من الداخل والخارج و البلاعات",
-    "نظافة الارضيات ",
-    "نظافة الاسقف وعدم تقشير الدهان  ",
-    "نظافة حوض التعقييم ",
-    "نظافة الحوائط والاركان بين الارضيات والحوائط ",
-    "وجود كيس داخل  صناديق المخلفات ",
-    "التاكد من فصل بين انواع المخلفات ووجود تعريف لكل نوع",
-    "التاكد من وجود صابون ايدي وكحول بالقسم ",
-    "نظافة الصاجات المستخدمة ",
-    "التأكد من عدم وجود دبابيس ومشبك ورق  داخل القسم ",
-    "نظافة اعلي واسفل البنوك ",
-    "جميع الخامات  الوسيطة  معرفة بشكل صحيح وغير منتهية الصلاحية ",
-    "الالتزام بترتيب المنطقة المتفق عليه ",
-    "نظافة الشعلة ",
-    "نظافة ماكينة الاجلاسيات",
-    "نظافة الافران من الخارج ",
-    "نظافة البرانيك المستخدمة في العملية الانتاجية ",
-    "نظافة الحمام المائي",
-    "نظافة الابواب من الداخل والخارج",
-    "نظافة الارضيات  و البلاعات ",
-    "نظافة الاسقف وعدم تقشير الدهان  ",
-    "نظافة حوض التعقييم ",
-    "نظافة الحوائط والاركان بين الارضيات والحوائط ",
-    "وجود كيس داخل  صناديق المخلفات ",
-    "التاكد من فصل بين انواع المخلفات ووجود تعريف لكل نوع",
-    "التاكد من وجود صابون ايدي وكحول بالقسم ",
-    "نظافة الاستاندات الثابته",
-    "التأكد من عدم وجود دبابيس ومشبك ورق  داخل القسم ",
-    "نظافة اعلي واسفل البنوك ",
-    "الالتزام بترتيب المنطقة المتفق عليه ",
-    "نظافة الافران  من الخارج  ",
-    "نظافة البرانيك المستخدمة في العملية الانتاجية ",
-    "نظافة الشعلة "
-]
+// excel code [just a small training on the exclejs and it isn't part of the project]
+const jsonData = [
+    { id: 1, name: "ahmed", role: "QC" },
+    { id: 2, name: "sadek", role: "labeler" },
+    { id: 3, name: "ali", role: "supervisor" },
+];
 
-//functions
+function exclejsTest(data) {
+    const wb = new ExcelJS.Workbook();
+    const ws = wb.addWorksheet("sheet 1", { properties: { tabColor: { argb: "ff0000" } } });
 
+    ws.columns = [
+        { header: "ID", key: "id" },
+        { header: "NAME", key: "name" },
+        { header: "ROLE", key: "role" },
+    ];
 
-// events
+    ws.getRow(1).font = { bold: true };
 
+    await wb.xlsx.writeFile("train one.xlsx");
+    console.log("success");
+};
 
-
-
-// const saveBtn = document.getElementById("saveBtn");
-// const questions = document.getElementById("questions")
-// const msgBox = document.getElementById("msgBox");
-// const exportBtn = document.getElementById("export");
-// const clearBtn = document.getElementById("clear");
-// const KonafaQuestions = [
-//     "نظافة الابواب من الداخل والخارج و البلاعات  ",
-//     "نظافة الارضيات  ",
-//     "نظافة الاسقف وعدم تقشير الدهان  ",
-//     "نظافة حوض التعقييم ",
-//     "نظافة الحوائط والاركان بين االارضيات والحوائط ",
-//     "وجود كيس داخل  صناديق المخلفات ",
-//     "التاكد من فصل بين انواع المخلفات ووجود تعريف لكل نوع",
-//     "التاكد من وجود صابون ايدي وكحول بالقسم ",
-//     "نظافة الصواني والصاجات المستخدمة ",
-//     "التأكد من عدم وجود دبابيس ومشبك ورق  داخل القسم ",
-//     "نظافة اعلي واسفل البنوك ",
-//     "جميع الخامات معرفة بشكل صحيح وغير منتهية الصلاحية ",
-//     "الالتزام بترتيب المنطقة المتفق عليه ",
-//     "نظافة الاستاندات الثابتة ",
-//     "نظافة ماكينة فرم الكنافة ",
-//     "نظافة وتصنيف دولاب الادوات المستخدمة ",
-//     "نظافة البرانيك المستخدمة في العملية الانتاجية ",
-//     "نظافة المضرب ",
-//     "نظافة الاستاندات وتعريف المنتجات في غرفة التبريد",
-//     " يتم تنظيف وغسيل ادوات التقطيع والماكينه  بعد ا الانتهاء من المنتجات المحتوي علي مسببات حساسية"
-// ];
-
-
-// function save() {
-//     const inputs = document.querySelectorAll(".input");
-
-//     inputs.forEach((input) => {
-//         localStorage.setItem(input.id, input.value);
-//     });
-
-//     msgBox.textContent = "تم الحفظ";
-//     setTimeout(() => {
-//         msgBox.textContent = "";
-//     }, 1000);
-// }
-
-
-
-
-// // events
-// window.addEventListener("load", () => {
-//     KonafaQuestions.forEach((KonafaQuestion, index) => {
-//         // create html elements
-//         const question = document.createElement("div");
-//         const lable = document.createElement("span");
-//         const inputField = document.createElement("input");
-
-//         // assigning content to html elements
-//         lable.textContent = KonafaQuestion;
-
-//         // set attributes
-//         inputField.setAttribute("type", "text");
-//         inputField.setAttribute("id", `konafa_${index.toString()}`);
-
-//         // styling the elements
-//         question.classList.add("question");
-
-//         lable.classList.add("item");
-//         inputField.classList.add("input");
-
-//         // combine elements together
-//         question.append(lable, inputField);
-//         questions.append(question);
-
-//         console.log(question)
-//     });
-
-
-// });
-
-// saveBtn.addEventListener("click", save);
-
-
-
-// clearBtn.addEventListener("click", () => {
-//     localStorage.clear();
-//     inputs.forEach((input) => {
-//         input.value = "";
-//     });
-// });
-
-// exportBtn.addEventListener("click", () => {
-
-//     const data = {};
-
-//     Object.keys(localStorage).forEach((key) => {
-//         if (key.startsWith("konafa_")) {
-//             data[key] = localStorage.getItem(key);
-//         }
-//     });
-
-//     if (Object.keys(localStorage).length === 0) {
-//         alert("من فضلك احفظ بعض البيانات ليتم التصدير");
-//         return;
-//     }
-
-//     const formatted = Object.entries(data).map(
-//         ([key, value]) => ({
-//             Field: key,
-//             Value: value,
-//         }
-//         )
-//     );
-
-//     const worksheet = XLSX.utils.json_to_sheet(formatted);
-//     const workbook = XLSX.utils.book_new();
-
-//     XLSX.utils.book_append_sheet(workbook, worksheet, "sheet1");
-//     XLSX.writeFile(workbook, "Quality_Report.xlsx");
-// }
-// );
-
+exclejsTest(jsonData);
