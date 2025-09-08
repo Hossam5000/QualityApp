@@ -5,7 +5,7 @@ const jsonData = [
     { id: 3, name: "ali", role: "supervisor" },
 ];
 
-function exclejsTest(data) {
+async function exclejsTest(data) {
     const wb = new ExcelJS.Workbook();
     const ws = wb.addWorksheet("sheet 1", { properties: { tabColor: { argb: "ff0000" } } });
 
