@@ -9,11 +9,11 @@ const exportBtn = document.getElementById("export");
 
 
 // FUNCTIONS
-function createSections(sections) {
-
+function createFloors() {
+    console.log("test");
 }
 
-
+createFloors();
 
 // EVENTS
 
