@@ -71,3 +71,5 @@ const floor1 = {
         }
     ]
 }
+
+export default floor1;

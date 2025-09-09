@@ -15,11 +15,36 @@
             <section class="sections">
                 <h2 class="sectionTitle">قسم الكنافة</h2>
                 <div class="divisions">
-                    <div class="divisionTitle">بنك الكنافة</div>
-                    <div class="divisionQuestions">
-                        <label>نظافة الاحواض</label>
-                        <input type="number" class="input" min="0" max="10" step="1">
-                    </div><!--./divisionQuestions-->
+                    <div class="division">
+                        <div class="divisionTitle">بنك الكنافة</div>
+                        <div class="divisionQuestions">
+                            <div class="divisionQuestion">
+                                <label class="label"> نظافة الاسطح</label>
+                                <input class="input" type="number" class="input" min="0" max="10" step="1">
+                            </div><!--./divisionQuestion-->
+
+                            <div class="divisionQuestion">
+                                <label class="label">نظافة الاحواض</label>
+                                <input type="number" class="input" min="0" max="10" step="1">
+                            </div><!--./divisionQuestion-->
+                        </div><!--./divisionQuestions-->
+                    </div><!--./division-->
+
+                    <div class="division">
+                        <div class="divisionTitle">بنك الكنافة</div>
+                        <div class="divisionQuestions">
+                            <div class="divisionQuestion">
+                                <label class="label"> نظافة الاسطح</label>
+                                <input type="number" class="input" min="0" max="10" step="1">
+                            </div><!--./divisionQuestion-->
+
+                            <div class="divisionQuestion">
+                                <label class="label">نظافة الاحواض</label>
+                                <input type="number" class="input" min="0" max="10" step="1">
+                            </div><!--./divisionQuestion-->
+
+                        </div><!--./divisionQuestions-->
+                    </div><!--./division-->
                 </div><!--./divisions-->
             </section><!--./sections-->
         </section><!--#/floor-1-->
@@ -31,7 +56,7 @@
         <button onclick="exceljsTest()">اختبار</button>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/exceljs@4.3.0/dist/exceljs.min.js"></script>
-    <script src="main.js"></script>
+    <script type="module" src="main.js"></script>
     <script src="exceljs.js"></script>
 </body>
 
