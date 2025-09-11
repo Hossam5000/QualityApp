@@ -31,12 +31,19 @@ function createFloors() {
         const floorSections = document.createElement("section");
         floorSections.classList.add("sections");
 
+        // create floorSectionsTitle
+        const floorSectionsTitle = document.createElement("h2");
+        floorSectionsTitle.classList.add("sectionTitle");
+        floorItem.sections.forEach((item) => { floorSectionsTitle.textContent });
+        // create every floorSection
+
 
         // append elements
-        floor.append(floorTitle);
+        floorSections.append(floorSectionsTitle);
+        floor.append(floorTitle, floorSections);
 
         container.append(floor);
-        console.log(floorTitle);
+        console.log(floorItem.sections);
     });
 }
 
