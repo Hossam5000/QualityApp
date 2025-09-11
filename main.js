@@ -8,6 +8,7 @@ const container = document.querySelector(".container");
 const saveBtn = document.getElementById("save");
 const clearBtn = document.getElementById("clear");
 const exportBtn = document.getElementById("export");
+const floors = [floor1, floor2, floor3];
 
 
 
@@ -15,7 +16,28 @@ const exportBtn = document.getElementById("export");
 
 // FUNCTIONS
 function createFloors() {
-    console.log(floor1);
+    floors.forEach(floorItem => {
+        // create floors
+        const floor = document.createElement("section");
+        floor.classList.add("floor");
+        floor.setAttribute("id", `${floorItem.floorId}`);
+
+        // create floorTitles
+        const floorTitle = document.createElement("h1");
+        floorTitle.classList.add("floorTitle");
+        floorTitle.textContent = `${floorItem.floorId}`;
+
+        // create floorSections
+        const floorSections = document.createElement("section");
+        floorSections.classList.add("sections");
+
+
+        // append elements
+        floor.append(floorTitle);
+
+        container.append(floor);
+        console.log(floorTitle);
+    });
 }
 
 createFloors();
