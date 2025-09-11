@@ -1,5 +1,5 @@
 const floor1 = {
-    floor: "الشرقي",
+    floorId: "الشرقي",
     sections: [
         {
             sectionTitle: "قسم الكنافة",
