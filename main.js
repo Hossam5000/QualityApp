@@ -45,7 +45,17 @@ function createFloors() {
             item.divisions.forEach((divisionItem => {
                 const division = document.createElement("div");
                 division.classList.add("division");
-                division.textContent = divisionItem.divisionTitle;
+
+                // adding the division titles and the questions container
+                const divisionTitle = document.createElement("div");
+                divisionTitle.classList.add("division-title");
+                divisionTitle.textContent = divisionItem.divisionTitle;
+
+                const divisionQuestions = document.createElement("div");
+                divisionQuestions.classList.add("division-questions");
+                divisionQuestions.textContent = divisionItem.questions;
+
+                division.append(divisionTitle, divisionQuestions);
                 sectionDivisions.append(division);
             }));
 

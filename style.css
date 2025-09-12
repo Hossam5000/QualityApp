@@ -45,12 +45,16 @@ body {
     border: 1px solid #000;
 }
 
-.floor .sections .divisions .division .divisionTitle {
-    background: #999;
-    width: 60px;
-    color: #f4f4f4;
+.floor .sections .divisions .division .division-title {
+    width: fit-content;
+
     padding: 10px;
     border-radius: 20px;
+
+    text-align: center;
+
+    background: #999;
+    color: #f4f4f4;
 }
 
 .floor .sections .divisions .division .divisionQuestions .divisionQuestion {
