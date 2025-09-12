@@ -53,7 +53,50 @@ function createFloors() {
 
                 const divisionQuestions = document.createElement("div");
                 divisionQuestions.classList.add("division-questions");
-                divisionQuestions.textContent = divisionItem.questions;
+                // divisionQuestions.textContent = divisionItem.questions;
+
+                // loop over each question
+                divisionItem.questions.forEach((questionItem) => {
+                    // create questions
+                    const question = document.createElement("div");
+                    question.classList.add("division-question");
+
+                    // create question labels and inputs
+                    const questionLabel = document.createElement("label");
+                    questionLabel.classList.add("label");
+                    questionLabel.textContent = questionItem;
+
+                    const questionInput = document.createElement("input");
+                    questionInput.classList.add("input");
+                    questionInput.setAttribute("type", "number");
+                    questionInput.setAttribute("min", "0");
+                    questionInput.setAttribute("max", "10");
+                    questionInput.setAttribute("step", "1");
+
+                    // adding a function for the confirmation on the question value
+                    function validateQuestionValue() {
+                        if (questionInput.value > 10) {
+                            questionInput.value = 10;
+                        }
+                        else if (questionInput.value < 0) {
+                            questionInput.value = 0;
+                        };
+                    };
+
+                    // add event listeners to the question input
+                    questionInput.addEventListener("blur", () => {
+                        validateQuestionValue();
+                    });
+
+                    questionInput.addEventListener("keydown", (event) => {
+                        if (event.key === "Enter") {
+                            validateQuestionValue();
+                        }
+                    });
+
+                    question.append(questionLabel, questionInput);
+                    divisionQuestions.append(question);
+                });
 
                 division.append(divisionTitle, divisionQuestions);
                 sectionDivisions.append(division);

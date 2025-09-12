@@ -36,7 +36,15 @@ body {
 }
 
 .floor .sections .section-title {
+    width: fit-content;
+
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 5px;
+
     text-align: center;
+    color: #fff;
+    background-color: #f70974;
 }
 
 
@@ -57,13 +65,14 @@ body {
     color: #f4f4f4;
 }
 
-.floor .sections .divisions .division .divisionQuestions .divisionQuestion {
+.floor .sections .divisions .division .division-questions .division-question {
     display: flex;
     justify-content: space-between;
+
     margin: 10px 0;
 }
 
-.floor .sections .divisions .division .divisionQuestions .divisionQuestion .input {
+.floor .sections .divisions .division .division-questions .division-question .input {
     width: 100px;
 }
 
