@@ -11,9 +11,6 @@ const exportBtn = document.getElementById("export");
 const floors = [floor1, floor2, floor3];
 
 
-
-
-
 // FUNCTIONS
 function createFloors() {
     floors.forEach(floorItem => {
@@ -24,23 +21,39 @@ function createFloors() {
 
         // create floorTitles
         const floorTitle = document.createElement("h1");
-        floorTitle.classList.add("floorTitle");
+        floorTitle.classList.add("floor-title");
         floorTitle.textContent = `${floorItem.floorId}`;
 
-        // create floorSections
-        const floorSections = document.createElement("section");
-        floorSections.classList.add("sections");
+        // append floor titles
+        floor.append(floorTitle);
 
-        // create floorSectionsTitle
-        const floorSectionsTitle = document.createElement("h2");
-        floorSectionsTitle.classList.add("sectionTitle");
-        floorItem.sections.forEach((item) => { floorSectionsTitle.textContent });
-        // create every floorSection
+        floorItem.sections.forEach((item) => {
+
+            // create floorSections
+            const floorSections = document.createElement("section");
+            floorSections.classList.add("sections");
+
+            // create floorSectionsTitle
+            const floorSectionsTitle = document.createElement("h2");
+            floorSectionsTitle.classList.add("section-title");
+            floorSectionsTitle.textContent = item.sectionTitle;
+
+            // create SectionDivisions
+            const sectionDivisions = document.createElement("div");
+            sectionDivisions.classList.add("divisions");
+
+            item.divisions.forEach((divisionItem => {
+                const division = document.createElement("div");
+                division.classList.add("division");
+                division.textContent = divisionItem.divisionTitle;
+                sectionDivisions.append(division);
+            }));
 
 
-        // append elements
-        floorSections.append(floorSectionsTitle);
-        floor.append(floorTitle, floorSections);
+            // append floorSectionTitle to the section
+            floorSections.append(floorSectionsTitle, sectionDivisions);
+            floor.append(floorSections);
+        });
 
         container.append(floor);
         console.log(floorItem.sections);
