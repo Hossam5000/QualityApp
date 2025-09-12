@@ -1,15 +1,38 @@
-<section class="section">
-            <h1 class="section-title">البان</h1>
-
+<section class="floor" id="الشرقي">
+    <h1 class="floor-title">الشرقي</h1>
+    <section class="sections">
+        <h2 class="section-title">قسم الكنافة</h2>
+        <div class="divisions">
             <div class="division">
+                <div class="division-title">بنك الكنافة</div>
+                <div class="division-questions">
+                    <div class="division-question">
+                        <label class="label"> نظافة الاسطح</label>
+                        <input class="input" type="number" class="input" min="0" max="10" step="1">
+                    </div><!--./divisionQuestion-->
 
-                <div class="questions">
-                    <div class="question">
-                        <span class="question-text">هل الارضيات نظيفة</span>
-                        <input type="text" class="input" id="">
-                    </div><!--./question-->
-                </div><!--./questions-->
-
+                    <div class="division-question">
+                        <label class="label">نظافة الاحواض</label>
+                        <input type="number" class="input" min="0" max="10" step="1">
+                    </div><!--./divisionQuestion-->
+                </div><!--./divisionQuestions-->
             </div><!--./division-->
 
-        </section><!--./section-->
+            <div class="division">
+                <div class="division-title">بنك الكنافة</div>
+                <div class="division-questions">
+                    <div class="division-question">
+                        <label class="label"> نظافة الاسطح</label>
+                        <input type="number" class="input" min="0" max="10" step="1">
+                    </div><!--./divisionQuestion-->
+
+                    <div class="division-question">
+                        <label class="label">نظافة الاحواض</label>
+                        <input type="number" class="input" min="0" max="10" step="1">
+                    </div><!--./divisionQuestion-->
+
+                </div><!--./divisionQuestions-->
+            </div><!--./division-->
+        </div><!--./divisions-->
+    </section><!--./sections-->
+</section>

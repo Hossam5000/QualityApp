@@ -10,50 +10,11 @@
 <body>
 
     <div class="container">
-        <section class="floor" id="الشرقي">
-            <h1 class="floor-title">الشرقي</h1>
-            <section class="sections">
-                <h2 class="section-title">قسم الكنافة</h2>
-                <div class="divisions">
-                    <div class="division">
-                        <div class="division-title">بنك الكنافة</div>
-                        <div class="division-questions">
-                            <div class="division-question">
-                                <label class="label"> نظافة الاسطح</label>
-                                <input class="input" type="number" class="input" min="0" max="10" step="1">
-                            </div><!--./divisionQuestion-->
-
-                            <div class="division-question">
-                                <label class="label">نظافة الاحواض</label>
-                                <input type="number" class="input" min="0" max="10" step="1">
-                            </div><!--./divisionQuestion-->
-                        </div><!--./divisionQuestions-->
-                    </div><!--./division-->
-
-                    <div class="division">
-                        <div class="division-title">بنك الكنافة</div>
-                        <div class="division-questions">
-                            <div class="division-question">
-                                <label class="label"> نظافة الاسطح</label>
-                                <input type="number" class="input" min="0" max="10" step="1">
-                            </div><!--./divisionQuestion-->
-
-                            <div class="division-question">
-                                <label class="label">نظافة الاحواض</label>
-                                <input type="number" class="input" min="0" max="10" step="1">
-                            </div><!--./divisionQuestion-->
-
-                        </div><!--./divisionQuestions-->
-                    </div><!--./division-->
-                </div><!--./divisions-->
-            </section><!--./sections-->
-        </section><!--#/floor-1-->
     </div>
     <div class="controllers">
         <button id="save">حفظ البيانات</button>
         <button id="clear">حذف كل البيانات</button>
-        <button id="export" onclick="exportChecklistToExcel()">تصدير البيانات</button>
-        <button onclick="exceljsTest()">اختبار</button>
+        <button id="export">تصدير البيانات</button>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/exceljs@4.3.0/dist/exceljs.min.js"></script>
     <script type="module" src="main.js"></script>
