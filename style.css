@@ -32,7 +32,6 @@ body {
 
 .floor .sections {
     margin: 20px 0;
-    border: 1px solid #000;
 }
 
 .floor .sections .section-title {
@@ -60,7 +59,7 @@ body {
 
     text-align: center;
 
-    background: #999;
+    background: #000;
     color: #f4f4f4;
 }
 

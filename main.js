@@ -1,14 +1,16 @@
 // imports
+import floor0 from "./database/floor-0.js";
 import floor1 from "./database/floor-1.js";
 import floor2 from "./database/floor-2.js";
 import floor3 from "./database/floor-3.js";
+import floor4 from "./database/floor-4.js";
 
 // CONS & VARS
 const container = document.querySelector(".container");
 const saveBtn = document.getElementById("save");
 const clearBtn = document.getElementById("clear");
 const exportBtn = document.getElementById("export");
-const floors = [floor1, floor2, floor3];
+const floors = [floor0, floor1, floor2, floor3, floor4];
 
 
 // FUNCTIONS
