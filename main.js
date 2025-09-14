@@ -116,6 +116,7 @@ function createFloors() {
 }
 
 // EVENTS
+
 // save
 saveBtn.addEventListener("click", () => {
     const savedData = [];
@@ -164,6 +165,7 @@ saveBtn.addEventListener("click", () => {
     console.log("Saved Data:", savedData);
 });
 
+
 // clear
 clearBtn.addEventListener("click", () => {
     // Step 1: Confirm before clearing
@@ -211,6 +213,8 @@ clearBtn.addEventListener("click", () => {
 
     console.log("Dashboard inputs reset to 0 and localStorage cleared.");
 });
+
+
 // load
 window.addEventListener("load", () => {
     createFloors(); // ✅ Build the DOM first
