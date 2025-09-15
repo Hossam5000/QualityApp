@@ -1,19 +1,3 @@
-/* 
-
-{
-            sectionTitle: "قسم",
-            divisions: [
-                {
-                    divisionTitle: "بنك",
-                    questions: [
-
-                    ],
-                },
-            ],
-},
-
-*/
-
 const floor3 = {
     floorId: "الثالث",
     sections: [
