@@ -115,7 +115,7 @@ function createFloors() {
     });
 }
 
-// EVENTS
+// FEATURES
 
 // save
 saveBtn.addEventListener("click", () => {
