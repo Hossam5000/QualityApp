@@ -51,7 +51,7 @@ body {
 }
 
 .floor .sections .divisions .division .division-title {
-    width: max-content;
+    width: fit-content;
 
     padding: 10px;
     border-radius: 20px;
