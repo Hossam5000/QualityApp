@@ -111,7 +111,6 @@ function createFloors() {
         });
 
         container.append(floor);
-        console.log(floorItem.sections);
     });
 }
 
