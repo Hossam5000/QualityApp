@@ -49,7 +49,7 @@ function createFloors() {
                 division.classList.add("division");
 
                 // adding the division titles and the questions container
-                const divisionTitle = document.createElement("div");
+                const divisionTitle = document.createElement("h3");
                 divisionTitle.classList.add("division-title");
                 divisionTitle.textContent = divisionItem.divisionTitle;
 
