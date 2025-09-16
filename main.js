@@ -289,7 +289,7 @@ exportBtn.addEventListener("click", async () => {
         const sheet = workbook.addWorksheet(sheetName);
 
         // ✅ Header row with dynamic date as fifth column
-        sheet.addRow(["القسم الرئيسي", "القسم الفرعي", "السؤال", "التقييم", `${formattedDate}]);
+        sheet.addRow(["القسم الرئيسي", "القسم الفرعي", "السؤال", "التقييم", `${formattedDate}`]);
 
         floor.sections.forEach(section => {
             section.divisions.forEach(division => {
