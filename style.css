@@ -41,8 +41,10 @@ body {
 }
 
 .floor .sections .section-title {
+    display: inline-block;
     width: max-content;
     margin: 10px auto;
+    margin-right: 38%;
     padding: 10px;
     border-radius: 5px;
 
