@@ -41,14 +41,13 @@ body {
 }
 
 .floor .sections .section-title {
-    width: fit-content;
-    max-width: 100%;
+    width: max-content;
     margin: 10px auto;
     padding: 10px;
     border-radius: 5px;
 
     text-align: center;
-    font-size: 30px;
+
     color: #fff;
     background-color: #f70974;
 }
@@ -59,12 +58,11 @@ body {
 }
 
 .floor .sections .divisions .division .division-title {
-    width: fit-content;
-    max-width: 100%;
+    display: inline-block;
     padding: 10px;
     border-radius: 20px;
 
-    font-size: 25px;
+    font-size: 30px;
     text-align: center;
 
     background: #000;
@@ -122,3 +120,5 @@ body {
     background-color: dodgerblue;
     color: #fff;
 }
+
+/* media queries */
