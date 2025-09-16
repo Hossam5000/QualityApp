@@ -266,29 +266,30 @@ window.addEventListener("load", () => {
 // excel function
 exportBtn.addEventListener("click", async () => {
     const workbook = new ExcelJS.Workbook();
-    workbook.creator = "Hossam";
+    workbook.creator = "Hossam Hasan";
     workbook.created = new Date();
 
     const savedData = JSON.parse(localStorage.getItem("dashboardData"));
     if (!savedData) {
-        alert("No saved data found.");
+        alert("من فضلك ادخل بعض البيانات.");
         return;
     }
 
-    savedData.forEach(floor => {
-        const sheet = workbook.addWorksheet(floor.floorId);
+    // Generate today's date once
+    const today = new Date();
+    const formattedDate = "date";
 
-        sheet.addRow(["القسم الرئيسي", "القسم الفرعي", "السؤال", "التقييم"]);
-        sheet.autoFilter = {
-            from: {
-                row: 1,
-                column: 1
-            },
-            to: {
-                row: 1,
-                column: 4
-            }
-        };
+    console.log(formattedDate);
+    savedData.forEach(floor => {
+        const maxSheetNameLength = 31;
+        const sheetName = floor.floorId.length > maxSheetNameLength
+            ? floor.floorId.slice(0, maxSheetNameLength)
+            : floor.floorId;
+
+        const sheet = workbook.addWorksheet(sheetName);
+
+        // ✅ Header row with dynamic date as fifth column
+        sheet.addRow(["القسم الرئيسي", "القسم الفرعي", "السؤال", "التقييم", `${formattedDate}]);
 
         floor.sections.forEach(section => {
             section.divisions.forEach(division => {
@@ -297,7 +298,8 @@ exportBtn.addEventListener("click", async () => {
                         section.sectionTitle,
                         division.divisionTitle,
                         question.questionLabel,
-                        question.value
+                        question.value,
+                        formattedDate
                     ]);
                 });
             });
@@ -309,14 +311,14 @@ exportBtn.addEventListener("click", async () => {
     });
 
     const buffer = await workbook.xlsx.writeBuffer();
+    const blob = new Blob([buffer], {
+        type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    });
 
-    const blob = new Blob([buffer], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
     const url = URL.createObjectURL(blob);
-
     const a = document.createElement("a");
     a.href = url;
     a.download = "GMP Report.xlsx";
     a.click();
-
     URL.revokeObjectURL(url);
 });
