@@ -123,4 +123,17 @@ body {
     color: #fff;
 }
 
-@media screen and (max-width: 1100px) {}
+@media screen and (max-width: 1100px) {
+    .floor .sections .section-title {
+        font-size: 45px;
+    }
+
+    .floor .sections .divisions .division .division-title,
+    .floor .sections .divisions .division .division-questions .division-question .label {
+        font-size: 40px;
+    }
+
+    .floor .sections .divisions .division .division-questions .division-question {
+        margin-bottom: 30px;
+    }
+}
