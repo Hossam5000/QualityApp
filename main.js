@@ -11,6 +11,8 @@ const saveBtn = document.getElementById("save");
 const clearBtn = document.getElementById("clear");
 const exportBtn = document.getElementById("export");
 const floors = [floor0, floor1, floor2, floor3, floor4];
+const dateEle = document.getElementById("date");
+
 
 
 // FUNCTIONS
@@ -216,6 +218,13 @@ clearBtn.addEventListener("click", () => {
 
 // load
 window.addEventListener("load", () => {
+    const dateDay = new Date().getDate();
+    const dateMonth = new Date().getMonth() + 1;
+    const dateYear = new Date().getFullYear();
+    const date = `${dateDay}/${dateMonth}/${dateYear}`;
+    console.log(date);
+
+    dateEle.textContent = date;
     createFloors(); // ✅ Build the DOM first
 
     const savedData = JSON.parse(localStorage.getItem("dashboardData"));
