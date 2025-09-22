@@ -83,8 +83,8 @@ function createFloors() {
                     questionInput.classList.add("input");
                     questionInput.setAttribute("type", "number");
                     questionInput.setAttribute("min", "0");
-                    questionInput.setAttribute("max", "10");
-                    questionInput.setAttribute("step", "1");
+                    questionInput.setAttribute("max", "100");
+                    questionInput.setAttribute("step", "10");
 
                     // adding a function for the confirmation on the question value
                     function validateQuestionValue() {
@@ -158,7 +158,7 @@ saveBtn.addEventListener("click", () => {
 
                     divisionData.questions.push({
                         questionLabel: label,
-                        value: Number(input)
+                        value: Number(input * 10)
                     });
                 });
 
@@ -260,10 +260,10 @@ window.addEventListener("load", () => {
 
                     const input = question.querySelector("input");
                     if (input) {
-                        input.value = questionItem.value;
+                        input.value = questionItem.value / 10;
 
                         function validateQuestionValue() {
-                            if (input.value > 10) input.value = 10;
+                            if (input.value > 100) input.value = 100;
                             else if (input.value < 0) input.value = 0;
                         }
 
