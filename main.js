@@ -85,6 +85,8 @@ function createFloors() {
                         else if (questionInput.value < 0) {
                             questionInput.value = 0;
                         };
+
+
                     };
 
                     // add event listeners to the question input
