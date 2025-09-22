@@ -12,10 +12,19 @@ const clearBtn = document.getElementById("clear");
 const exportBtn = document.getElementById("export");
 const floors = [floor0, floor1, floor2, floor3, floor4];
 const dateEle = document.getElementById("date");
+const scrollToFloor0 = document.getElementById("الارضي");
+
+
 
 
 
 // FUNCTIONS
+function scroll() {
+    return scrollToFloor0.scrollIntoView({
+        behavior: "smooth",
+    });
+}
+
 function createFloors() {
     floors.forEach(floorItem => {
         // create floors
@@ -85,8 +94,6 @@ function createFloors() {
                         else if (questionInput.value < 0) {
                             questionInput.value = 0;
                         };
-
-
                     };
 
                     // add event listeners to the question input
