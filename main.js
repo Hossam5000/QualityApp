@@ -62,11 +62,11 @@ function createFloors() {
                     questionInput.classList.add("input");
                     questionInput.setAttribute("type", "number");
                     questionInput.setAttribute("min", "0");
-                    questionInput.setAttribute("max", "100");
-                    questionInput.setAttribute("step", "10");
+                    questionInput.setAttribute("max", "10");
+                    questionInput.setAttribute("step", "1");
 
                     function validateQuestionValue() {
-                        if (questionInput.value > 100) questionInput.value = 100;
+                        if (questionInput.value > 10) questionInput.value = 10;
                         else if (questionInput.value < 0) questionInput.value = 0;
                     }
 
@@ -104,6 +104,7 @@ function createSidebarLinks() {
             document.getElementById(floorItem.floorId).scrollIntoView({
                 behavior: "smooth",
             });
+            sideBar.classList.remove("sidebar-active");
         });
 
         // creating the li ele
@@ -123,6 +124,7 @@ function createSidebarLinks() {
         document.getElementById("controllers").scrollIntoView({
             behavior: "smooth",
         });
+        sideBar.classList.remove("sidebar-active");
     });
 
     // createing the li that handle the dataBtns
@@ -293,13 +295,13 @@ exportBtn.addEventListener("click", async () => {
     const formattedDate = `${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`;
 
     savedData.forEach(floor => {
-        const maxSheetNameLength = 31;
+        const maxSheetNameLength = 40;
         const sheetName = floor.floorId.length > maxSheetNameLength
             ? floor.floorId.slice(0, maxSheetNameLength)
             : floor.floorId;
 
         const sheet = workbook.addWorksheet(sheetName);
-        sheet.addRow(["القسم الرئيسي", "القسم الفرعي", "السؤال", "التقييم", `${formattedDate}`]);
+        sheet.addRow(["القسم", "المسؤلية", "السؤال", `${formattedDate}`]);
 
         floor.sections.forEach(section => {
             section.divisions.forEach(division => {
@@ -309,7 +311,6 @@ exportBtn.addEventListener("click", async () => {
                         division.divisionTitle,
                         question.questionLabel,
                         question.value,
-                        formattedDate
                     ]);
                 });
             });
