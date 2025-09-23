@@ -1,0 +1,23 @@
+import floor0 from "../database/floor-0.js";
+import floor1 from "../database/floor-1.js";
+import floor2 from "../database/floor-2.js";
+import floor3 from "../database/floor-3.js";
+import floor4 from "../database/floor-4.js";
+
+import { createFloors } from "./utilities/createFloors.js";
+import { loadSavedData } from "./utilities/loadSavedData.js";
+import { createSidebarLinks } from "./sidebar/sidebar.js";
+import { utilities } from "./utilities/utilities.js";
+
+const container = document.querySelector(".container");
+const dateEle = document.getElementById("date");
+const floors = [floor0, floor1, floor2, floor3, floor4];
+
+window.addEventListener("load", () => {
+    const date = new Date().toLocaleDateString("en-GB");
+    dateEle.textContent = date;
+
+    createFloors(container, floors);
+    createSidebarLinks(floors);
+    loadSavedData();
+});
