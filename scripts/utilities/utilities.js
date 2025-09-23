@@ -39,7 +39,6 @@ export function utilities() {
         });
 
         localStorage.setItem("dashboardData", JSON.stringify(savedData));
-        console.log("Saved Data:", savedData);
     });
 
     // CLEAR
@@ -51,36 +50,6 @@ export function utilities() {
         });
 
         localStorage.removeItem("dashboardData");
-
-        const toast = document.createElement("div");
-        toast.textContent = "Dashboard reset: all values set to 0.";
-        Object.assign(toast.style, {
-            position: "fixed",
-            bottom: "20px",
-            right: "20px",
-            backgroundColor: "#4caf50",
-            color: "#fff",
-            padding: "10px 20px",
-            borderRadius: "5px",
-            boxShadow: "0 2px 6px rgba(0,0,0,0.2)",
-            zIndex: "1000",
-            fontFamily: "sans-serif",
-            fontSize: "14px",
-            opacity: "0",
-            transition: "opacity 0.5s ease-in-out"
-        });
-
-        document.body.appendChild(toast);
-        requestAnimationFrame(() => {
-            toast.style.opacity = "1";
-        });
-
-        setTimeout(() => {
-            toast.style.opacity = "0";
-            setTimeout(() => toast.remove(), 500);
-        }, 3000);
-
-        console.log("Dashboard inputs reset to 0 and localStorage cleared.");
     });
 
     // EXPORT

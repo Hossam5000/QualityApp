@@ -14,12 +14,16 @@ import { utilities } from "./utilities/utilities.js";
 // cons & vars
 const container = document.querySelector(".container");
 const dateEle = document.getElementById("date");
+const weekDays = ["الاحد", "الاثنين", "الثلاثاء", "الاربعاء", "الخميس", "الجمعة", "السبت"];
+const weekDay = document.getElementById("week-day");
+console.log(weekDay);
 const floors = [floor0, floor1, floor2, floor3, floor4];
 
 // events
 window.addEventListener("load", () => {
     const date = new Date().toLocaleDateString("en-UK");
     dateEle.textContent = date;
+    weekDay.textContent = weekDays[new Date().getDay()];
 
     createFloors(container, floors);
     createSidebarLinks(floors);
