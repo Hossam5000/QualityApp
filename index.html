@@ -3,31 +3,32 @@
 
 <head>
     <meta charset="UTF-8">
-
-    <title> Quality App</title>
+    <title>Quality App</title>
     <link rel="icon" href="microscope.png" type="image/x-icon">
+    <!-- Add this inside <head> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
-    <nav class="nav">
-        <ul>
-            <li id="الارضي">الارضي</li>
-            <li id="الشرقي">الشرقي</li>
-        </ul>
+
+    <nav class="sidebar">
+        <ul id="floorLinks"></ul>
     </nav>
 
     <div class="container">
         <div id="date"></div>
     </div>
-    <div class="controllers">
+
+    <div id="controllers" class="controllers">
         <button id="save">حفظ البيانات</button>
         <button id="clear">حذف كل البيانات</button>
         <button id="export">تصدير البيانات</button>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/exceljs@4.3.0/dist/exceljs.min.js"></script>
     <script type="module" src="main.js"></script>
-    <script src="exceljs.js"></script>
 </body>
 
 </html>
