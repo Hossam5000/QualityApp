@@ -47,7 +47,7 @@ export function utilities() {
         if (!confirm("تحذير: سيتم حذف كل البيانات!")) return;
 
         document.querySelectorAll(".input").forEach(input => {
-            input.value = 0;
+            input.value = null;
         });
 
         localStorage.removeItem("dashboardData");
