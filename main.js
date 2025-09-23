@@ -6,6 +6,8 @@ import floor3 from "./database/floor-3.js";
 import floor4 from "./database/floor-4.js";
 
 // CONS & VARS
+const topIcon = document.getElementById("top-icon");
+const sideBar = document.querySelector(".sidebar");
 const container = document.querySelector(".container");
 const saveBtn = document.getElementById("save");
 const clearBtn = document.getElementById("clear");
@@ -88,22 +90,6 @@ function createFloors() {
     });
 }
 
-// function createSidebarLinks() {
-//     const floorLinks = document.getElementById("floorLinks");
-//     floors.forEach(floor => {
-//         const li = document.createElement("li");
-//         const a = document.createElement("a");
-//         a.textContent = floor.floorId;
-//         a.href = `#${floor.floorId}`;
-//         a.addEventListener("click", (e) => {
-//             e.preventDefault();
-//             document.getElementById(floor.floorId).scrollIntoView({ behavior: "smooth" });
-//         });
-//         li.appendChild(a);
-//         floorLinks.appendChild(li);
-//     });
-// }
-
 function createSidebarLinks() {
     const floorLinks = document.getElementById("floorLinks");
 
@@ -144,6 +130,12 @@ function createSidebarLinks() {
     btnLi.append(dataBtns);
     floorLinks.append(btnLi);
 };
+
+// events
+// opening the sidebar
+topIcon.addEventListener("click", () => {
+    sideBar.classList.toggle("sidebar-active");
+});
 
 // LOAD
 window.addEventListener("load", () => {
