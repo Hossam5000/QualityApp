@@ -14,10 +14,11 @@ const dateEle = document.getElementById("date");
 const floors = [floor0, floor1, floor2, floor3, floor4];
 
 window.addEventListener("load", () => {
-    const date = new Date().toLocaleDateString("en-GB");
+    const date = new Date().toLocaleDateString("en-UK");
     dateEle.textContent = date;
 
     createFloors(container, floors);
     createSidebarLinks(floors);
     loadSavedData();
+    utilities();
 });
