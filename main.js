@@ -7,6 +7,7 @@ import floor4 from "./database/floor-4.js";
 
 // CONS & VARS
 const topIcon = document.getElementById("top-icon");
+const closeSidebar = document.querySelector(".close-sidebar");
 const sideBar = document.querySelector(".sidebar");
 const container = document.querySelector(".container");
 const saveBtn = document.getElementById("save");
@@ -134,8 +135,13 @@ function createSidebarLinks() {
 // events
 // opening the sidebar
 topIcon.addEventListener("click", () => {
-    sideBar.classList.toggle("sidebar-active");
+    sideBar.classList.add("sidebar-active");
 });
+
+closeSidebar.addEventListener("click", () => {
+    sideBar.classList.remove("sidebar-active");
+});
+
 
 // LOAD
 window.addEventListener("load", () => {
