@@ -70,7 +70,7 @@ body {
 }
 
 .sidebar-active {
-    right: 250px;
+    right: 0px;
 }
 
 .sidebar ul {
