@@ -1,11 +1,10 @@
-// cons & vars
-const topIcon = document.getElementById("top-icon");
-const closeSidebar = document.querySelector(".close-sidebar");
-const sideBar = document.querySelector(".sidebar");
+export function createSideBar(floors) {
+    // cons & vars
+    const topIcon = document.getElementById("top-icon");
+    const closeSidebar = document.querySelector(".close-sidebar");
+    const sideBar = document.querySelector(".sidebar");
 
-
-// functions
-export function createSidebarLinks(floors) {
+    // functions
     const floorLinks = document.getElementById("floorLinks");
 
     floors.forEach((floorItem) => {
@@ -45,4 +44,5 @@ export function createSidebarLinks(floors) {
     closeSidebar.addEventListener("click", () => {
         sideBar.classList.remove("sidebar-active");
     });
+
 }

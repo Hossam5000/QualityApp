@@ -8,7 +8,7 @@ import floor4 from "../database/floor-4.js";
 // import other js files
 import { createFloors } from "./utilities/createFloors.js";
 import { loadSavedData } from "./utilities/loadSavedData.js";
-import { createSidebarLinks } from "./sidebar/sidebar.js";
+import { createSideBar } from "../components/sidebar/sidebar.js";
 import { utilities } from "./utilities/utilities.js";
 
 // cons & vars
@@ -26,7 +26,7 @@ window.addEventListener("load", () => {
     weekDay.textContent = weekDays[new Date().getDay()];
 
     createFloors(container, floors);
-    createSidebarLinks(floors);
+    createSideBar(floors);
     loadSavedData();
     utilities();
 });
