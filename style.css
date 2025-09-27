@@ -14,29 +14,9 @@ body {
     background-color: #f5f5f5;
 }
 
-#top-icon {
-    font-size: 40px;
-}
-
-#top-icon:hover {
-    cursor: pointer;
-}
-
-
-.header {
-    position: fixed;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    padding: 10px;
-    background-color: #fff;
-    box-shadow: 1px 1px 5px #000;
-}
-
-
 .container {
-    max-width: 800px;
+    width: 80%;
+    max-width: 1200px;
     margin: auto;
     margin-top: 75px;
 }

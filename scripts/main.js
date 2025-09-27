@@ -8,7 +8,6 @@ import floor4 from "../database/floor-4.js";
 // import other js files
 import { createFloors } from "./utilities/createFloors.js";
 import { loadSavedData } from "./utilities/loadSavedData.js";
-import { createSideBar } from "../components/sidebar/sidebar.js";
 import { utilities } from "./utilities/utilities.js";
 
 // cons & vars
